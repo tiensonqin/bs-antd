@@ -2293,18 +2293,13 @@ module Message = {
   type content;
   type duration = int;
   type options;
-  external success : content => duration => (unit => unit [@bs]) => unit =
-    "" [@@bs.module "antd/lib/message"];
-  external error : content => duration => (unit => unit [@bs]) => unit =
-    "" [@@bs.module "antd/lib/message"];
-  external info : content => duration => (unit => unit [@bs]) => unit =
-    "" [@@bs.module "antd/lib/message"];
-  external warning : content => duration => (unit => unit [@bs]) => unit =
-    "" [@@bs.module "antd/lib/message"];
-  external warn : content => duration => (unit => unit [@bs]) => unit =
-    "" [@@bs.module "antd/lib/message"];
-  external loading : content => duration => (unit => unit [@bs]) => unit =
-    "" [@@bs.module "antd/lib/message"];
+  type callback = (unit => unit) [@bs];
+  external success : content => duration => callback => unit = "" [@@bs.module "antd/lib/message"];
+  external error : content => duration => callback => unit = "" [@@bs.module "antd/lib/message"];
+  external info : content => duration => callback => unit = "" [@@bs.module "antd/lib/message"];
+  external warning : content => duration => callback => unit = "" [@@bs.module "antd/lib/message"];
+  external warn : content => duration => callback => unit = "" [@@bs.module "antd/lib/message"];
+  external loading : content => duration => callback => unit = "" [@@bs.module "antd/lib/message"];
   external config : options => unit = "" [@@bs.module "antd/lib/message"];
   external destroy : unit => unit = "" [@@bs.module "antd/lib/message"];
 };
