@@ -1,0 +1,31 @@
+{
+  "name": "bs-antd",
+  "version": "0.0.1",
+  "description": "BuckleScript bindings for ant design.",
+  "main": "index.js",
+  "scripts": {
+    "build": "bsb -make-world -clean-world",
+    "watch": "bsb -make-world -clean-world -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiensonqin/bs-antd.git"
+  },
+  "keywords": [
+    "antd",
+    "BuckleScript",
+    "Reason"
+  ],
+  "author": "Tienson Qin (tiensonqin@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tiensonqin/bs-antd/issues"
+  },
+  "homepage": "https://github.com/tiensonqin/bs-antd#readme",
+  "devDependencies": {
+    "bs-platform": "^1.9.3"
+  },
+  "dependencies": {
+    "reason-react": "^0.2.4"
+  }
+}
