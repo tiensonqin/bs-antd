@@ -27,5 +27,8 @@
   },
   "dependencies": {
     "reason-react": "^0.2.4"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }
