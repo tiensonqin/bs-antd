@@ -3,7 +3,7 @@ let optBoolToOptJsBoolean =
   | None => None
   | Some v => Some (Js.Boolean.to_js_boolean v);
 
-let unwrapBool v => Js.Undefined.from_opt @@ optBoolToOptJsBoolean v;
+let unwrapBool v => Js.Undefined.fromOption @@ optBoolToOptJsBoolean v;
 
 module Popconfirm = {
   external popconfirm : ReasonReact.reactClass = "antd/lib/popconfirm" [@@bs.module];
@@ -22,15 +22,15 @@ module Popconfirm = {
       props::
         Js.Undefined.(
           {
-            "onCancel": from_opt onCancel,
-            "className": from_opt className,
-            "title": from_opt title,
-            "cancelText": from_opt cancelText,
-            "style": from_opt style,
-            "id": from_opt id,
-            "onConfirm": from_opt onConfirm,
-            "okText": from_opt okText,
-            "okType": from_opt okType
+            "onCancel": fromOption onCancel,
+            "className": fromOption className,
+            "title": fromOption title,
+            "cancelText": fromOption cancelText,
+            "style": fromOption style,
+            "id": fromOption id,
+            "onConfirm": fromOption onConfirm,
+            "okText": fromOption okText,
+            "okType": fromOption okType
           }
         );
 };
@@ -43,10 +43,10 @@ module LocaleProvider = {
       props::
         Js.Undefined.(
           {
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style,
-            "locale": from_opt locale
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style,
+            "locale": fromOption locale
           }
         );
 };
@@ -88,35 +88,35 @@ module Tree = {
       props::
         Js.Undefined.(
           {
-            "defaultCheckedKeys": from_opt defaultCheckedKeys,
+            "defaultCheckedKeys": fromOption defaultCheckedKeys,
             "multiple": unwrapBool multiple,
             "defaultExpandAll": unwrapBool defaultExpandAll,
-            "selectedKeys": from_opt selectedKeys,
-            "filterTreeNode": from_opt filterTreeNode,
-            "defaultExpandedKeys": from_opt defaultExpandedKeys,
-            "onCheck": from_opt onCheck,
-            "expandedKeys": from_opt expandedKeys,
-            "onSelect": from_opt onSelect,
-            "loadData": from_opt loadData,
+            "selectedKeys": fromOption selectedKeys,
+            "filterTreeNode": fromOption filterTreeNode,
+            "defaultExpandedKeys": fromOption defaultExpandedKeys,
+            "onCheck": fromOption onCheck,
+            "expandedKeys": fromOption expandedKeys,
+            "onSelect": fromOption onSelect,
+            "loadData": fromOption loadData,
             "showLine": unwrapBool showLine,
-            "onDragEnter": from_opt onDragEnter,
+            "onDragEnter": fromOption onDragEnter,
             "autoExpandParent": unwrapBool autoExpandParent,
-            "onRightClick": from_opt onRightClick,
-            "checkedKeys": from_opt checkedKeys,
+            "onRightClick": fromOption onRightClick,
+            "checkedKeys": fromOption checkedKeys,
             "showIcon": unwrapBool showIcon,
-            "className": from_opt className,
-            "style": from_opt style,
+            "className": fromOption className,
+            "style": fromOption style,
             "checkable": unwrapBool checkable,
-            "onDragOver": from_opt onDragOver,
-            "onDragLeave": from_opt onDragLeave,
-            "onExpand": from_opt onExpand,
-            "id": from_opt id,
-            "checkStrictly": from_opt checkStrictly,
-            "onDragEnd": from_opt onDragEnd,
+            "onDragOver": fromOption onDragOver,
+            "onDragLeave": fromOption onDragLeave,
+            "onExpand": fromOption onExpand,
+            "id": fromOption id,
+            "checkStrictly": fromOption checkStrictly,
+            "onDragEnd": fromOption onDragEnd,
             "draggable": unwrapBool draggable,
-            "onDragStart": from_opt onDragStart,
-            "onDrop": from_opt onDrop,
-            "defaultSelectedKeys": from_opt defaultSelectedKeys
+            "onDragStart": fromOption onDragStart,
+            "onDrop": fromOption onDrop,
+            "defaultSelectedKeys": fromOption defaultSelectedKeys
           }
         );
   module TreeNode = {
@@ -137,12 +137,12 @@ module Tree = {
             {
               "disabled": unwrapBool disabled,
               "disableCheckbox": unwrapBool disableCheckbox,
-              "title": from_opt title,
-              "key": from_opt key,
+              "title": fromOption title,
+              "key": fromOption key,
               "isLeaf": unwrapBool isLeaf,
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style
             }
           );
   };
@@ -185,34 +185,34 @@ module Table = {
       props::
         Js.Undefined.(
           {
-            "onRowMouseLeave": from_opt onRowMouseLeave,
-            "defaultExpandedRowKeys": from_opt defaultExpandedRowKeys,
-            "onRowDoubleClick": from_opt onRowDoubleClick,
-            "onExpandedRowsChange": from_opt onExpandedRowsChange,
-            "rowKey": from_opt rowKey,
-            "locale": from_opt locale,
+            "onRowMouseLeave": fromOption onRowMouseLeave,
+            "defaultExpandedRowKeys": fromOption defaultExpandedRowKeys,
+            "onRowDoubleClick": fromOption onRowDoubleClick,
+            "onExpandedRowsChange": fromOption onExpandedRowsChange,
+            "rowKey": fromOption rowKey,
+            "locale": fromOption locale,
             "showHeader": unwrapBool showHeader,
-            "columns": from_opt columns,
+            "columns": fromOption columns,
             "defaultExpandAllRows": unwrapBool defaultExpandAllRows,
             "bordered": unwrapBool bordered,
-            "indentSize": from_opt indentSize,
-            "footer": from_opt footer,
-            "expandedRowRender": from_opt expandedRowRender,
-            "className": from_opt className,
-            "size": from_opt size,
-            "title": from_opt title,
-            "style": from_opt style,
-            "rowClassName": from_opt rowClassName,
-            "expandedRowKeys": from_opt expandedRowKeys,
-            "scroll": from_opt scroll,
-            "onExpand": from_opt onExpand,
-            "dataSource": from_opt dataSource,
-            "pagination": from_opt pagination,
-            "id": from_opt id,
-            "onRowMouseEnter": from_opt onRowMouseEnter,
-            "rowSelection": from_opt rowSelection,
-            "onRowClick": from_opt onRowClick,
-            "onChange": from_opt onChange,
+            "indentSize": fromOption indentSize,
+            "footer": fromOption footer,
+            "expandedRowRender": fromOption expandedRowRender,
+            "className": fromOption className,
+            "size": fromOption size,
+            "title": fromOption title,
+            "style": fromOption style,
+            "rowClassName": fromOption rowClassName,
+            "expandedRowKeys": fromOption expandedRowKeys,
+            "scroll": fromOption scroll,
+            "onExpand": fromOption onExpand,
+            "dataSource": fromOption dataSource,
+            "pagination": fromOption pagination,
+            "id": fromOption id,
+            "onRowMouseEnter": fromOption onRowMouseEnter,
+            "rowSelection": fromOption rowSelection,
+            "onRowClick": fromOption onRowClick,
+            "onChange": fromOption onChange,
             "loading": unwrapBool loading
           }
         );
@@ -248,26 +248,26 @@ module Table = {
             {
               "filterMultiple": unwrapBool filterMultiple,
               "filtered": unwrapBool filtered,
-              "filterDropdown": from_opt filterDropdown,
-              "filterIcon": from_opt filterIcon,
-              "key": from_opt key,
-              "filters": from_opt filters,
-              "width": from_opt width,
+              "filterDropdown": fromOption filterDropdown,
+              "filterIcon": fromOption filterIcon,
+              "key": fromOption key,
+              "filters": fromOption filters,
+              "width": fromOption width,
               "filterDropdownVisible": unwrapBool filterDropdownVisible,
-              "className": from_opt className,
-              "title": from_opt title,
-              "style": from_opt style,
-              "render": from_opt render,
-              "colSpan": from_opt colSpan,
-              "sorter": from_opt sorter,
-              "id": from_opt id,
-              "sortOrder": from_opt sortOrder,
-              "onFilter": from_opt onFilter,
-              "filteredValue": from_opt filteredValue,
-              "onCellClick": from_opt onCellClick,
-              "fixed": from_opt fixed,
-              "dataIndex": from_opt dataIndex,
-              "onFilterDropdownVisibleChange": from_opt onFilterDropdownVisibleChange
+              "className": fromOption className,
+              "title": fromOption title,
+              "style": fromOption style,
+              "render": fromOption render,
+              "colSpan": fromOption colSpan,
+              "sorter": fromOption sorter,
+              "id": fromOption id,
+              "sortOrder": fromOption sortOrder,
+              "onFilter": fromOption onFilter,
+              "filteredValue": fromOption filteredValue,
+              "onCellClick": fromOption onCellClick,
+              "fixed": fromOption fixed,
+              "dataIndex": fromOption dataIndex,
+              "onFilterDropdownVisibleChange": fromOption onFilterDropdownVisibleChange
             }
           );
   };
@@ -279,10 +279,10 @@ module Table = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
-              "title": from_opt title
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
+              "title": fromOption title
             }
           );
   };
@@ -304,14 +304,14 @@ module Affix = {
       props::
         Js.Undefined.(
           {
-            "offsetTop": from_opt offsetTop,
-            "offset": from_opt offset,
-            "offsetBottom": from_opt offsetBottom,
-            "target": from_opt target,
-            "onChange": from_opt onChange,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "offsetTop": fromOption offsetTop,
+            "offset": fromOption offset,
+            "offsetBottom": fromOption offsetBottom,
+            "target": fromOption target,
+            "onChange": fromOption onChange,
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
 };
@@ -341,22 +341,22 @@ module Tabs = {
       props::
         Js.Undefined.(
           {
-            "onEdit": from_opt onEdit,
-            "tabBarExtraContent": from_opt tabBarExtraContent,
+            "onEdit": fromOption onEdit,
+            "tabBarExtraContent": fromOption tabBarExtraContent,
             "hideAdd": unwrapBool hideAdd,
-            "tabPosition": from_opt tabPosition,
-            "type": from_opt type_,
-            "activeKey": from_opt activeKey,
-            "onNextClick": from_opt onNextClick,
-            "onPrevClick": from_opt onPrevClick,
-            "className": from_opt className,
-            "size": from_opt size,
-            "style": from_opt style,
-            "id": from_opt id,
-            "tabBarStyle": from_opt tabBarStyle,
-            "defaultActiveKey": from_opt defaultActiveKey,
-            "onChange": from_opt onChange,
-            "onTabClick": from_opt onTabClick,
+            "tabPosition": fromOption tabPosition,
+            "type": fromOption type_,
+            "activeKey": fromOption activeKey,
+            "onNextClick": fromOption onNextClick,
+            "onPrevClick": fromOption onPrevClick,
+            "className": fromOption className,
+            "size": fromOption size,
+            "style": fromOption style,
+            "id": fromOption id,
+            "tabBarStyle": fromOption tabBarStyle,
+            "defaultActiveKey": fromOption defaultActiveKey,
+            "onChange": fromOption onChange,
+            "onTabClick": fromOption onTabClick,
             "animated": unwrapBool animated
           }
         );
@@ -368,12 +368,12 @@ module Tabs = {
         props::
           Js.Undefined.(
             {
-              "key": from_opt key,
-              "tab": from_opt tab,
+              "key": fromOption key,
+              "tab": fromOption tab,
               "forceRender": unwrapBool forceRender,
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style
             }
           );
   };
@@ -389,11 +389,11 @@ module Radio = {
           {
             "checked": unwrapBool checked,
             "defaultChecked": unwrapBool defaultChecked,
-            "value": from_opt value,
+            "value": fromOption value,
             "disabled": unwrapBool disabled,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
   module Group = {
@@ -415,15 +415,15 @@ module Radio = {
           Js.Undefined.(
             {
               "disabled": unwrapBool disabled,
-              "name": from_opt name,
-              "value": from_opt value,
-              "className": from_opt className,
-              "size": from_opt size,
-              "style": from_opt style,
-              "id": from_opt id,
-              "options": from_opt options,
-              "defaultValue": from_opt defaultValue,
-              "onChange": from_opt onChange
+              "name": fromOption name,
+              "value": fromOption value,
+              "className": fromOption className,
+              "size": fromOption size,
+              "style": fromOption style,
+              "id": fromOption id,
+              "options": fromOption options,
+              "defaultValue": fromOption defaultValue,
+              "onChange": fromOption onChange
             }
           );
   };
@@ -448,15 +448,15 @@ module Radio = {
             {
               "defaultChecked": unwrapBool defaultChecked,
               "disabled": unwrapBool disabled,
-              "name": from_opt name,
-              "value": from_opt value,
-              "onMouseEnter": from_opt onMouseEnter,
-              "className": from_opt className,
-              "style": from_opt style,
+              "name": fromOption name,
+              "value": fromOption value,
+              "onMouseEnter": fromOption onMouseEnter,
+              "className": fromOption className,
+              "style": fromOption style,
               "checked": unwrapBool checked,
-              "id": from_opt id,
-              "onMouseLeave": from_opt onMouseLeave,
-              "onChange": from_opt onChange
+              "id": fromOption id,
+              "onMouseLeave": fromOption onMouseLeave,
+              "onChange": fromOption onChange
             }
           );
   };
@@ -481,17 +481,17 @@ module Button = {
       props::
         Js.Undefined.(
           {
-            "type": from_opt type_,
-            "icon": from_opt icon,
-            "className": from_opt className,
-            "size": from_opt size,
-            "style": from_opt style,
-            "htmlType": from_opt htmlType,
-            "loading": from_opt loading,
-            "id": from_opt id,
-            "shape": from_opt shape,
-            "ghost": from_opt ghost,
-            "onClick": from_opt onClick
+            "type": fromOption type_,
+            "icon": fromOption icon,
+            "className": fromOption className,
+            "size": fromOption size,
+            "style": fromOption style,
+            "htmlType": fromOption htmlType,
+            "loading": fromOption loading,
+            "id": fromOption id,
+            "shape": fromOption shape,
+            "ghost": fromOption ghost,
+            "onClick": fromOption onClick
           }
         );
 };
@@ -503,7 +503,7 @@ module Layout = {
       reactClass::layout
       props::
         Js.Undefined.(
-          {"id": from_opt id, "className": from_opt className, "style": from_opt style}
+          {"id": fromOption id, "className": fromOption className, "style": fromOption style}
         );
   module Header = {
     external header : ReasonReact.reactClass = "Header" [@@bs.module "antd/lib/layout"];
@@ -512,7 +512,7 @@ module Layout = {
         reactClass::header
         props::
           Js.Undefined.(
-            {"id": from_opt id, "className": from_opt className, "style": from_opt style}
+            {"id": fromOption id, "className": fromOption className, "style": fromOption style}
           );
   };
   module Footer = {
@@ -522,7 +522,7 @@ module Layout = {
         reactClass::footer
         props::
           Js.Undefined.(
-            {"id": from_opt id, "className": from_opt className, "style": from_opt style}
+            {"id": fromOption id, "className": fromOption className, "style": fromOption style}
           );
   };
   module Content = {
@@ -532,7 +532,7 @@ module Layout = {
         reactClass::content
         props::
           Js.Undefined.(
-            {"id": from_opt id, "className": from_opt className, "style": from_opt style}
+            {"id": fromOption id, "className": fromOption className, "style": fromOption style}
           );
   };
   module Sider = {
@@ -555,17 +555,17 @@ module Layout = {
         props::
           Js.Undefined.(
             {
-              "collapsedWidth": from_opt collapsedWidth,
+              "collapsedWidth": fromOption collapsedWidth,
               "collapsible": unwrapBool collapsible,
-              "breakpoint": from_opt breakpoint,
-              "width": from_opt width,
-              "className": from_opt className,
-              "style": from_opt style,
-              "id": from_opt id,
+              "breakpoint": fromOption breakpoint,
+              "width": fromOption width,
+              "className": fromOption className,
+              "style": fromOption style,
+              "id": fromOption id,
               "defaultCollapsed": unwrapBool defaultCollapsed,
               "reverseArrow": unwrapBool reverseArrow,
-              "onCollapse": from_opt onCollapse,
-              "trigger": from_opt trigger,
+              "onCollapse": fromOption onCollapse,
+              "trigger": fromOption trigger,
               "collapsed": unwrapBool collapsed
             }
           );
@@ -607,15 +607,15 @@ module Checkbox = {
           {
             "defaultChecked": unwrapBool defaultChecked,
             "disabled": unwrapBool disabled,
-            "name": from_opt name,
-            "value": from_opt value,
-            "onMouseEnter": from_opt onMouseEnter,
-            "className": from_opt className,
-            "style": from_opt style,
+            "name": fromOption name,
+            "value": fromOption value,
+            "onMouseEnter": fromOption onMouseEnter,
+            "className": fromOption className,
+            "style": fromOption style,
             "checked": unwrapBool checked,
-            "id": from_opt id,
-            "onMouseLeave": from_opt onMouseLeave,
-            "onChange": from_opt onChange
+            "id": fromOption id,
+            "onMouseLeave": fromOption onMouseLeave,
+            "onChange": fromOption onChange
           }
         );
   module Group = {
@@ -634,14 +634,14 @@ module Checkbox = {
         props::
           Js.Undefined.(
             {
-              "defaultValue": from_opt defaultValue,
-              "value": from_opt value,
-              "options": from_opt options,
-              "onChange": from_opt onChange,
+              "defaultValue": fromOption defaultValue,
+              "value": fromOption value,
+              "options": fromOption options,
+              "onChange": fromOption onChange,
               "disabled": unwrapBool disabled,
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style
             }
           );
   };
@@ -674,25 +674,25 @@ module Transfer = {
       props::
         Js.Undefined.(
           {
-            "searchPlaceholder": from_opt searchPlaceholder,
-            "titles": from_opt titles,
-            "onSelectChange": from_opt onSelectChange,
+            "searchPlaceholder": fromOption searchPlaceholder,
+            "titles": fromOption titles,
+            "onSelectChange": fromOption onSelectChange,
             "showSearch": unwrapBool showSearch,
-            "onSearchChange": from_opt onSearchChange,
-            "footer": from_opt footer,
-            "className": from_opt className,
-            "style": from_opt style,
-            "notFoundContent": from_opt notFoundContent,
-            "render": from_opt render,
-            "lazy": from_opt lazy_,
-            "dataSource": from_opt dataSource,
-            "id": from_opt id,
-            "operations": from_opt operations,
-            "onScroll": from_opt onScroll,
-            "listStyle": from_opt listStyle,
-            "onChange": from_opt onChange,
+            "onSearchChange": fromOption onSearchChange,
+            "footer": fromOption footer,
+            "className": fromOption className,
+            "style": fromOption style,
+            "notFoundContent": fromOption notFoundContent,
+            "render": fromOption render,
+            "lazy": fromOption lazy_,
+            "dataSource": fromOption dataSource,
+            "id": fromOption id,
+            "operations": fromOption operations,
+            "onScroll": fromOption onScroll,
+            "listStyle": fromOption listStyle,
+            "onChange": fromOption onChange,
             "filterOption": unwrapBool filterOption,
-            "targetKeys": from_opt targetKeys
+            "targetKeys": fromOption targetKeys
           }
         );
 };
@@ -705,11 +705,11 @@ module Popover = {
       props::
         Js.Undefined.(
           {
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style,
-            "title": from_opt title,
-            "content": from_opt content
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style,
+            "title": fromOption title,
+            "content": fromOption content
           }
         );
 };
@@ -738,21 +738,21 @@ module AutoComplete = {
       props::
         Js.Undefined.(
           {
-            "children": from_opt children,
+            "children": fromOption children,
             "disabled": unwrapBool disabled,
-            "onSelect": from_opt onSelect,
+            "onSelect": fromOption onSelect,
             "allowClear": unwrapBool allowClear,
-            "placeholder": from_opt placeholder,
-            "value": from_opt value,
+            "placeholder": fromOption placeholder,
+            "value": fromOption value,
             "backfill": unwrapBool backfill,
-            "className": from_opt className,
-            "onSearch": from_opt onSearch,
-            "style": from_opt style,
-            "dataSource": from_opt dataSource,
-            "id": from_opt id,
+            "className": fromOption className,
+            "onSearch": fromOption onSearch,
+            "style": fromOption style,
+            "dataSource": fromOption dataSource,
+            "id": fromOption id,
             "defaultActiveFirstOption": unwrapBool defaultActiveFirstOption,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange,
             "filterOption": unwrapBool filterOption
           }
         );
@@ -775,15 +775,15 @@ module Steps = {
       props::
         Js.Undefined.(
           {
-            "progressDot": from_opt progressDot,
-            "className": from_opt className,
-            "size": from_opt size,
-            "style": from_opt style,
-            "status": from_opt status,
-            "id": from_opt id,
-            "current": from_opt current,
-            "iconPrefix": from_opt iconPrefix,
-            "direction": from_opt direction
+            "progressDot": fromOption progressDot,
+            "className": fromOption className,
+            "size": fromOption size,
+            "style": fromOption style,
+            "status": fromOption status,
+            "id": fromOption id,
+            "current": fromOption current,
+            "iconPrefix": fromOption iconPrefix,
+            "direction": fromOption direction
           }
         );
   module Step = {
@@ -794,13 +794,13 @@ module Steps = {
         props::
           Js.Undefined.(
             {
-              "status": from_opt status,
-              "title": from_opt title,
-              "description": from_opt description,
-              "icon": from_opt icon,
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style
+              "status": fromOption status,
+              "title": fromOption title,
+              "description": fromOption description,
+              "icon": fromOption icon,
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style
             }
           );
   };
@@ -825,17 +825,17 @@ module Alert = {
       props::
         Js.Undefined.(
           {
-            "description": from_opt description,
+            "description": fromOption description,
             "closable": unwrapBool closable,
             "banner": unwrapBool banner,
-            "onClose": from_opt onClose,
-            "type": from_opt type_,
+            "onClose": fromOption onClose,
+            "type": fromOption type_,
             "showIcon": unwrapBool showIcon,
-            "className": from_opt className,
-            "style": from_opt style,
-            "id": from_opt id,
-            "closeText": from_opt closeText,
-            "message": from_opt message
+            "className": fromOption className,
+            "style": fromOption style,
+            "id": fromOption id,
+            "closeText": fromOption closeText,
+            "message": fromOption message
           }
         );
 };
@@ -868,25 +868,25 @@ module TimePicker = {
       props::
         Js.Undefined.(
           {
-            "onOpenChange": from_opt onOpenChange,
-            "format": from_opt format,
-            "getPopupContainer": from_opt getPopupContainer,
+            "onOpenChange": fromOption onOpenChange,
+            "format": fromOption format,
+            "getPopupContainer": fromOption getPopupContainer,
             "disabled": unwrapBool disabled,
-            "disabledSeconds": from_opt disabledSeconds,
-            "placeholder": from_opt placeholder,
+            "disabledSeconds": fromOption disabledSeconds,
+            "placeholder": fromOption placeholder,
             "use12Hours": unwrapBool use12Hours,
-            "popupClassName": from_opt popupClassName,
-            "value": from_opt value,
-            "disabledMinutes": from_opt disabledMinutes,
+            "popupClassName": fromOption popupClassName,
+            "value": fromOption value,
+            "disabledMinutes": fromOption disabledMinutes,
             "hideDisabledOptions": unwrapBool hideDisabledOptions,
-            "className": from_opt className,
-            "style": from_opt style,
-            "disabledHours": from_opt disabledHours,
-            "id": from_opt id,
-            "defaultOpenValue": from_opt defaultOpenValue,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange,
-            "addon": from_opt addon,
+            "className": fromOption className,
+            "style": fromOption style,
+            "disabledHours": fromOption disabledHours,
+            "id": fromOption id,
+            "defaultOpenValue": fromOption defaultOpenValue,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange,
+            "addon": fromOption addon,
             "open": unwrapBool open_
           }
         );
@@ -900,12 +900,12 @@ module Icon = {
       props::
         Js.Undefined.(
           {
-            "type": from_opt type_,
-            "spin": from_opt spin,
-            "onClick": from_opt onClick,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "type": fromOption type_,
+            "spin": fromOption spin,
+            "onClick": fromOption onClick,
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
 };
@@ -931,19 +931,19 @@ module Dropdown = {
       props::
         Js.Undefined.(
           {
-            "align": from_opt align,
+            "align": fromOption align,
             "disabled": unwrapBool disabled,
-            "type": from_opt type_,
-            "className": from_opt className,
-            "size": from_opt size,
-            "style": from_opt style,
-            "overlay": from_opt overlay,
-            "onVisibleChange": from_opt onVisibleChange,
-            "id": from_opt id,
+            "type": fromOption type_,
+            "className": fromOption className,
+            "size": fromOption size,
+            "style": fromOption style,
+            "overlay": fromOption overlay,
+            "onVisibleChange": fromOption onVisibleChange,
+            "id": fromOption id,
             "visible": unwrapBool visible,
-            "placement": from_opt placement,
-            "trigger": from_opt trigger,
-            "onClick": from_opt onClick
+            "placement": fromOption placement,
+            "trigger": fromOption trigger,
+            "onClick": fromOption onClick
           }
         );
 };
@@ -969,15 +969,15 @@ module Rate = {
           {
             "disabled": unwrapBool disabled,
             "allowHalf": unwrapBool allowHalf,
-            "value": from_opt value,
-            "onHoverChange": from_opt onHoverChange,
-            "className": from_opt className,
-            "style": from_opt style,
-            "id": from_opt id,
-            "count": from_opt count,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange,
-            "character": from_opt character
+            "value": fromOption value,
+            "onHoverChange": fromOption onHoverChange,
+            "className": fromOption className,
+            "style": fromOption style,
+            "id": fromOption id,
+            "count": fromOption count,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange,
+            "character": fromOption character
           }
         );
 };
@@ -1010,24 +1010,24 @@ module Modal = {
         Js.Undefined.(
           {
             "closable": unwrapBool closable,
-            "getContainer": from_opt getContainer,
+            "getContainer": fromOption getContainer,
             "visible": unwrapBool visible,
-            "okText": from_opt okText,
-            "okType": from_opt okType,
+            "okText": fromOption okText,
+            "okType": fromOption okType,
             "maskClosable": unwrapBool maskClosable,
-            "wrapClassName": from_opt wrapClassName,
-            "className": from_opt className,
-            "style": from_opt style,
-            "onCancel": from_opt onCancel,
-            "onOk": from_opt onOk,
-            "width": from_opt width,
-            "id": from_opt id,
-            "footer": from_opt footer,
-            "title": from_opt title,
-            "cancelText": from_opt cancelText,
+            "wrapClassName": fromOption wrapClassName,
+            "className": fromOption className,
+            "style": fromOption style,
+            "onCancel": fromOption onCancel,
+            "onOk": fromOption onOk,
+            "width": fromOption width,
+            "id": fromOption id,
+            "footer": fromOption footer,
+            "title": fromOption title,
+            "cancelText": fromOption cancelText,
             "confirmLoading": unwrapBool confirmLoading,
-            "afterClose": from_opt afterClose,
-            "zIndex": from_opt zIndex
+            "afterClose": fromOption afterClose,
+            "zIndex": fromOption zIndex
           }
         );
   type options;
@@ -1059,13 +1059,13 @@ module Carousel = {
           {
             "vertical": unwrapBool vertical,
             "autoplay": unwrapBool autoplay,
-            "afterChange": from_opt afterChange,
-            "easing": from_opt easing,
-            "className": from_opt className,
-            "style": from_opt style,
-            "id": from_opt id,
-            "effect": from_opt effect,
-            "beforeChange": from_opt beforeChange,
+            "afterChange": fromOption afterChange,
+            "easing": fromOption easing,
+            "className": fromOption className,
+            "style": fromOption style,
+            "id": fromOption id,
+            "effect": fromOption effect,
+            "beforeChange": fromOption beforeChange,
             "dots": unwrapBool dots
           }
         );
@@ -1088,13 +1088,13 @@ module Card = {
       props::
         Js.Undefined.(
           {
-            "bodyStyle": from_opt bodyStyle,
-            "extra": from_opt extra,
+            "bodyStyle": fromOption bodyStyle,
+            "extra": fromOption extra,
             "bordered": unwrapBool bordered,
-            "className": from_opt className,
-            "title": from_opt title,
-            "style": from_opt style,
-            "id": from_opt id,
+            "className": fromOption className,
+            "title": fromOption title,
+            "style": fromOption style,
+            "id": fromOption id,
             "noHovering": unwrapBool noHovering,
             "loading": unwrapBool loading
           }
@@ -1106,7 +1106,7 @@ module Card = {
         reactClass::grid
         props::
           Js.Undefined.(
-            {"id": from_opt id, "className": from_opt className, "style": from_opt style}
+            {"id": fromOption id, "className": fromOption className, "style": fromOption style}
           );
   };
 };
@@ -1134,21 +1134,21 @@ module Calendar = {
       props::
         Js.Undefined.(
           {
-            "monthFullCellRender": from_opt monthFullCellRender,
+            "monthFullCellRender": fromOption monthFullCellRender,
             "fullscreen": unwrapBool fullscreen,
-            "onSelect": from_opt onSelect,
-            "locale": from_opt locale,
-            "value": from_opt value,
-            "monthCellRender": from_opt monthCellRender,
-            "mode": from_opt mode,
-            "className": from_opt className,
-            "style": from_opt style,
-            "id": from_opt id,
-            "disabledDate": from_opt disabledDate,
-            "dateFullCellRender": from_opt dateFullCellRender,
-            "defaultValue": from_opt defaultValue,
-            "dateCellRender": from_opt dateCellRender,
-            "onPanelChange": from_opt onPanelChange
+            "onSelect": fromOption onSelect,
+            "locale": fromOption locale,
+            "value": fromOption value,
+            "monthCellRender": fromOption monthCellRender,
+            "mode": fromOption mode,
+            "className": fromOption className,
+            "style": fromOption style,
+            "id": fromOption id,
+            "disabledDate": fromOption disabledDate,
+            "dateFullCellRender": fromOption dateFullCellRender,
+            "defaultValue": fromOption defaultValue,
+            "dateCellRender": fromOption dateCellRender,
+            "onPanelChange": fromOption onPanelChange
           }
         );
 };
@@ -1173,14 +1173,14 @@ module Switch_ = {
           {
             "defaultChecked": unwrapBool defaultChecked,
             "disabled": unwrapBool disabled,
-            "checkedChildren": from_opt checkedChildren,
-            "className": from_opt className,
-            "size": from_opt size,
-            "style": from_opt style,
+            "checkedChildren": fromOption checkedChildren,
+            "className": fromOption className,
+            "size": fromOption size,
+            "style": fromOption style,
             "checked": unwrapBool checked,
-            "id": from_opt id,
-            "unCheckedChildren": from_opt unCheckedChildren,
-            "onChange": from_opt onChange
+            "id": fromOption id,
+            "unCheckedChildren": fromOption unCheckedChildren,
+            "onChange": fromOption onChange
           }
         );
 };
@@ -1216,28 +1216,28 @@ module DatePicker = {
       props::
         Js.Undefined.(
           {
-            "onOpenChange": from_opt onOpenChange,
-            "format": from_opt format,
+            "onOpenChange": fromOption onOpenChange,
+            "format": fromOption format,
             "disabled": unwrapBool disabled,
             "allowClear": unwrapBool allowClear,
-            "placeholder": from_opt placeholder,
-            "disabledTime": from_opt disabledTime,
-            "locale": from_opt locale,
-            "getCalendarContainer": from_opt getCalendarContainer,
-            "value": from_opt value,
-            "popupStyle": from_opt popupStyle,
-            "onOk": from_opt onOk,
+            "placeholder": fromOption placeholder,
+            "disabledTime": fromOption disabledTime,
+            "locale": fromOption locale,
+            "getCalendarContainer": fromOption getCalendarContainer,
+            "value": fromOption value,
+            "popupStyle": fromOption popupStyle,
+            "onOk": fromOption onOk,
             "showToday": unwrapBool showToday,
-            "className": from_opt className,
-            "size": from_opt size,
-            "showTime": from_opt showTime,
-            "style": from_opt style,
-            "showTime.defaultValue": from_opt showTimeDefaultValue,
-            "id": from_opt id,
-            "disabledDate": from_opt disabledDate,
-            "renderExtraFooter": from_opt renderExtraFooter,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange,
+            "className": fromOption className,
+            "size": fromOption size,
+            "showTime": fromOption showTime,
+            "style": fromOption style,
+            "showTime.defaultValue": fromOption showTimeDefaultValue,
+            "id": fromOption id,
+            "disabledDate": fromOption disabledDate,
+            "renderExtraFooter": fromOption renderExtraFooter,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange,
             "open": unwrapBool open_
           }
         );
@@ -1271,26 +1271,26 @@ module Mention = {
       props::
         Js.Undefined.(
           {
-            "suggestionStyle": from_opt suggestionStyle,
-            "getSuggestionContainer": from_opt getSuggestionContainer,
+            "suggestionStyle": fromOption suggestionStyle,
+            "getSuggestionContainer": fromOption getSuggestionContainer,
             "disabled": unwrapBool disabled,
-            "onSelect": from_opt onSelect,
-            "placeholder": from_opt placeholder,
-            "value": from_opt value,
-            "onSearchChange": from_opt onSearchChange,
-            "onBlur": from_opt onBlur,
-            "className": from_opt className,
-            "prefix": from_opt prefix,
-            "style": from_opt style,
-            "notFoundContent": from_opt notFoundContent,
+            "onSelect": fromOption onSelect,
+            "placeholder": fromOption placeholder,
+            "value": fromOption value,
+            "onSearchChange": fromOption onSearchChange,
+            "onBlur": fromOption onBlur,
+            "className": fromOption className,
+            "prefix": fromOption prefix,
+            "style": fromOption style,
+            "notFoundContent": fromOption notFoundContent,
             "multiLines": unwrapBool multiLines,
-            "readOnly": from_opt readOnly,
-            "id": from_opt id,
-            "suggestions": from_opt suggestions,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange,
+            "readOnly": fromOption readOnly,
+            "id": fromOption id,
+            "suggestions": fromOption suggestions,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange,
             "loading": unwrapBool loading,
-            "onFocus": from_opt onFocus
+            "onFocus": fromOption onFocus
           }
         );
   type t;
@@ -1306,12 +1306,12 @@ module Mention = {
         props::
           Js.Undefined.(
             {
-              "value": from_opt value,
-              "data": from_opt data,
+              "value": fromOption value,
+              "data": fromOption data,
               "disabled": unwrapBool disabled,
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style
             }
           );
   };
@@ -1344,21 +1344,21 @@ module Pagination = {
           {
             "simple": unwrapBool simple,
             "showSizeChanger": unwrapBool showSizeChanger,
-            "defaultPageSize": from_opt defaultPageSize,
-            "itemRender": from_opt itemRender,
-            "showTotal": from_opt showTotal,
-            "className": from_opt className,
-            "size": from_opt size,
-            "style": from_opt style,
+            "defaultPageSize": fromOption defaultPageSize,
+            "itemRender": fromOption itemRender,
+            "showTotal": fromOption showTotal,
+            "className": fromOption className,
+            "size": fromOption size,
+            "style": fromOption style,
             "showQuickJumper": unwrapBool showQuickJumper,
-            "total": from_opt total,
-            "pageSize": from_opt pageSize,
-            "id": from_opt id,
-            "current": from_opt current,
-            "pageSizeOptions": from_opt pageSizeOptions,
-            "onShowSizeChange": from_opt onShowSizeChange,
-            "onChange": from_opt onChange,
-            "defaultCurrent": from_opt defaultCurrent
+            "total": fromOption total,
+            "pageSize": fromOption pageSize,
+            "id": fromOption id,
+            "current": fromOption current,
+            "pageSizeOptions": fromOption pageSizeOptions,
+            "onShowSizeChange": fromOption onShowSizeChange,
+            "onChange": fromOption onChange,
+            "defaultCurrent": fromOption defaultCurrent
           }
         );
 };
@@ -1392,27 +1392,27 @@ module Cascader = {
       props::
         Js.Undefined.(
           {
-            "getPopupContainer": from_opt getPopupContainer,
+            "getPopupContainer": fromOption getPopupContainer,
             "disabled": unwrapBool disabled,
             "allowClear": unwrapBool allowClear,
-            "loadData": from_opt loadData,
-            "placeholder": from_opt placeholder,
+            "loadData": fromOption loadData,
+            "placeholder": fromOption placeholder,
             "showSearch": unwrapBool showSearch,
-            "popupClassName": from_opt popupClassName,
-            "value": from_opt value,
-            "onPopupVisibleChange": from_opt onPopupVisibleChange,
-            "displayRender": from_opt displayRender,
-            "className": from_opt className,
-            "size": from_opt size,
-            "style": from_opt style,
-            "notFoundContent": from_opt notFoundContent,
+            "popupClassName": fromOption popupClassName,
+            "value": fromOption value,
+            "onPopupVisibleChange": fromOption onPopupVisibleChange,
+            "displayRender": fromOption displayRender,
+            "className": fromOption className,
+            "size": fromOption size,
+            "style": fromOption style,
+            "notFoundContent": fromOption notFoundContent,
             "changeOnSelect": unwrapBool changeOnSelect,
-            "id": from_opt id,
-            "expandTrigger": from_opt expandTrigger,
-            "popupPlacement": from_opt popupPlacement,
-            "options": from_opt options,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange
+            "id": fromOption id,
+            "expandTrigger": fromOption expandTrigger,
+            "popupPlacement": fromOption popupPlacement,
+            "options": fromOption options,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange
           }
         );
 };
@@ -1438,19 +1438,19 @@ module Col = {
       props::
         Js.Undefined.(
           {
-            "push": from_opt push,
-            "lg": from_opt lg,
-            "offset": from_opt offset,
-            "sm": from_opt sm,
-            "xs": from_opt xs,
-            "className": from_opt className,
-            "style": from_opt style,
-            "id": from_opt id,
-            "order": from_opt order,
-            "xl": from_opt xl,
-            "pull": from_opt pull,
-            "md": from_opt md,
-            "span": from_opt span
+            "push": fromOption push,
+            "lg": fromOption lg,
+            "offset": fromOption offset,
+            "sm": fromOption sm,
+            "xs": fromOption xs,
+            "className": fromOption className,
+            "style": fromOption style,
+            "id": fromOption id,
+            "order": fromOption order,
+            "xl": fromOption xl,
+            "pull": fromOption pull,
+            "md": fromOption md,
+            "span": fromOption span
           }
         );
 };
@@ -1471,14 +1471,14 @@ module Spin = {
       props::
         Js.Undefined.(
           {
-            "size": from_opt size,
+            "size": fromOption size,
             "spinning": unwrapBool spinning,
-            "tip": from_opt tip,
-            "delay": from_opt delay,
-            "wrapperClassName": from_opt wrapperClassName,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "tip": fromOption tip,
+            "delay": fromOption delay,
+            "wrapperClassName": fromOption wrapperClassName,
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
 };
@@ -1491,13 +1491,13 @@ module Avatar = {
       props::
         Js.Undefined.(
           {
-            "props": from_opt props,
-            "size": from_opt size,
-            "src": from_opt src,
-            "icon": from_opt icon,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "props": fromOption props,
+            "size": fromOption size,
+            "src": fromOption src,
+            "icon": fromOption icon,
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
 };
@@ -1542,34 +1542,34 @@ module TreeSelect = {
           {
             "multiple": unwrapBool multiple,
             "treeCheckStrictly": unwrapBool treeCheckStrictly,
-            "treeData": from_opt treeData,
-            "treeNodeLabelProp": from_opt treeNodeLabelProp,
-            "searchPlaceholder": from_opt searchPlaceholder,
-            "getPopupContainer": from_opt getPopupContainer,
+            "treeData": fromOption treeData,
+            "treeNodeLabelProp": fromOption treeNodeLabelProp,
+            "searchPlaceholder": fromOption searchPlaceholder,
+            "getPopupContainer": fromOption getPopupContainer,
             "disabled": unwrapBool disabled,
-            "treeDataSimpleMode": from_opt treeDataSimpleMode,
-            "onSelect": from_opt onSelect,
+            "treeDataSimpleMode": fromOption treeDataSimpleMode,
+            "onSelect": fromOption onSelect,
             "allowClear": unwrapBool allowClear,
-            "loadData": from_opt loadData,
-            "placeholder": from_opt placeholder,
+            "loadData": fromOption loadData,
+            "placeholder": fromOption placeholder,
             "treeCheckable": unwrapBool treeCheckable,
             "showSearch": unwrapBool showSearch,
-            "value": from_opt value,
-            "dropdownStyle": from_opt dropdownStyle,
+            "value": fromOption value,
+            "dropdownStyle": fromOption dropdownStyle,
             "filterTreeNode": unwrapBool filterTreeNode,
-            "labelInValue": from_opt labelInValue,
-            "className": from_opt className,
-            "size": from_opt size,
-            "onSearch": from_opt onSearch,
-            "style": from_opt style,
+            "labelInValue": fromOption labelInValue,
+            "className": fromOption className,
+            "size": fromOption size,
+            "onSearch": fromOption onSearch,
+            "style": fromOption style,
             "treeDefaultExpandAll": unwrapBool treeDefaultExpandAll,
             "dropdownMatchSelectWidth": unwrapBool dropdownMatchSelectWidth,
-            "id": from_opt id,
-            "treeNodeFilterProp": from_opt treeNodeFilterProp,
-            "treeDefaultExpandedKeys": from_opt treeDefaultExpandedKeys,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange,
-            "showCheckedStrategy": from_opt showCheckedStrategy
+            "id": fromOption id,
+            "treeNodeFilterProp": fromOption treeNodeFilterProp,
+            "treeDefaultExpandedKeys": fromOption treeDefaultExpandedKeys,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange,
+            "showCheckedStrategy": fromOption showCheckedStrategy
           }
         );
   module TreeNode = {
@@ -1592,12 +1592,12 @@ module TreeSelect = {
               "disabled": unwrapBool disabled,
               "disableCheckbox": unwrapBool disableCheckbox,
               "isLeaf": unwrapBool isLeaf,
-              "key": from_opt key,
-              "value": from_opt value,
-              "className": from_opt className,
-              "title": from_opt title,
-              "style": from_opt style,
-              "id": from_opt id
+              "key": fromOption key,
+              "value": fromOption value,
+              "className": fromOption className,
+              "title": fromOption title,
+              "style": fromOption style,
+              "id": fromOption id
             }
           );
   };
@@ -1611,12 +1611,12 @@ module BackTop = {
       props::
         Js.Undefined.(
           {
-            "visibilityHeight": from_opt visibilityHeight,
-            "onClick": from_opt onClick,
-            "target": from_opt target,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "visibilityHeight": fromOption visibilityHeight,
+            "onClick": fromOption onClick,
+            "target": fromOption target,
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
 };
@@ -1629,13 +1629,13 @@ module Breadcrumb = {
       props::
         Js.Undefined.(
           {
-            "routes": from_opt routes,
-            "params": from_opt params,
-            "separator": from_opt separator,
-            "itemRender": from_opt itemRender,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "routes": fromOption routes,
+            "params": fromOption params,
+            "separator": fromOption separator,
+            "itemRender": fromOption itemRender,
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
   module Item = {
@@ -1646,11 +1646,11 @@ module Breadcrumb = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
-              "separator": from_opt separator,
-              "href": from_opt href
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
+              "separator": fromOption separator,
+              "href": fromOption href
             }
           );
   };
@@ -1664,12 +1664,12 @@ module Collapse = {
       props::
         Js.Undefined.(
           {
-            "activeKey": from_opt activeKey,
-            "defaultActiveKey": from_opt defaultActiveKey,
-            "onChange": from_opt onChange,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "activeKey": fromOption activeKey,
+            "defaultActiveKey": fromOption defaultActiveKey,
+            "onChange": fromOption onChange,
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
   module Panel = {
@@ -1680,12 +1680,12 @@ module Collapse = {
         props::
           Js.Undefined.(
             {
-              "key": from_opt key,
-              "header": from_opt header,
+              "key": fromOption key,
+              "header": fromOption header,
               "disabled": unwrapBool disabled,
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style
             }
           );
   };
@@ -1699,12 +1699,12 @@ module Form = {
       props::
         Js.Undefined.(
           {
-            "layout": from_opt layout,
-            "onSubmit": from_opt onSubmit,
+            "layout": fromOption layout,
+            "onSubmit": fromOption onSubmit,
             "hideRequiredMark": unwrapBool hideRequiredMark,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
   type wrapper = (ReasonReact.reactClass => ReasonReact.reactClass) [@bs];
@@ -1736,17 +1736,17 @@ module Form = {
           Js.Undefined.(
             {
               "colon": unwrapBool colon,
-              "validateStatus": from_opt validateStatus,
-              "extra": from_opt extra,
-              "className": from_opt className,
+              "validateStatus": fromOption validateStatus,
+              "extra": fromOption extra,
+              "className": fromOption className,
               "required": unwrapBool required,
-              "style": from_opt style,
-              "label": from_opt label,
-              "id": from_opt id,
-              "wrapperCol": from_opt wrapperCol,
-              "help": from_opt help,
+              "style": fromOption style,
+              "label": fromOption label,
+              "id": fromOption id,
+              "wrapperCol": fromOption wrapperCol,
+              "help": fromOption help,
               "hasFeedback": unwrapBool hasFeedback,
-              "labelCol": from_opt labelCol
+              "labelCol": fromOption labelCol
             }
           );
   };
@@ -1760,13 +1760,13 @@ module Tag = {
       props::
         Js.Undefined.(
           {
-            "color": from_opt color,
+            "color": fromOption color,
             "closable": unwrapBool closable,
-            "onClose": from_opt onClose,
-            "afterClose": from_opt afterClose,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "onClose": fromOption onClose,
+            "afterClose": fromOption afterClose,
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
   module CheckableTag = {
@@ -1777,11 +1777,11 @@ module Tag = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
               "checked": unwrapBool checked,
-              "onChange": from_opt onChange
+              "onChange": fromOption onChange
             }
           );
   };
@@ -1803,14 +1803,14 @@ module Anchor = {
       props::
         Js.Undefined.(
           {
-            "offsetTop": from_opt offsetTop,
-            "offsetBottom": from_opt offsetBottom,
-            "bounds": from_opt bounds,
+            "offsetTop": fromOption offsetTop,
+            "offsetBottom": fromOption offsetBottom,
+            "bounds": fromOption bounds,
             "affix": unwrapBool affix,
             "showInkInFixed": unwrapBool showInkInFixed,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
   module Link = {
@@ -1821,11 +1821,11 @@ module Anchor = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
-              "href": from_opt href,
-              "title": from_opt title
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
+              "href": fromOption href,
+              "title": fromOption title
             }
           );
   };
@@ -1854,21 +1854,21 @@ module Input = {
       props::
         Js.Undefined.(
           {
-            "suffix": from_opt suffix,
+            "suffix": fromOption suffix,
             "disabled": unwrapBool disabled,
-            "addonAfter": from_opt addonAfter,
-            "placeholder": from_opt placeholder,
-            "value": from_opt value,
-            "type": from_opt type_,
-            "addonBefore": from_opt addonBefore,
-            "className": from_opt className,
-            "size": from_opt size,
-            "prefix": from_opt prefix,
-            "style": from_opt style,
-            "onPressEnter": from_opt onPressEnter,
-            "id": from_opt id,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange
+            "addonAfter": fromOption addonAfter,
+            "placeholder": fromOption placeholder,
+            "value": fromOption value,
+            "type": fromOption type_,
+            "addonBefore": fromOption addonBefore,
+            "className": fromOption className,
+            "size": fromOption size,
+            "prefix": fromOption prefix,
+            "style": fromOption style,
+            "onPressEnter": fromOption onPressEnter,
+            "id": fromOption id,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange
           }
         );
   module TextArea = {
@@ -1886,13 +1886,13 @@ module Input = {
         props::
           Js.Undefined.(
             {
-              "defaultValue": from_opt defaultValue,
-              "value": from_opt value,
-              "onPressEnter": from_opt onPressEnter,
+              "defaultValue": fromOption defaultValue,
+              "value": fromOption value,
+              "onPressEnter": fromOption onPressEnter,
               "autosize": unwrapBool autosize,
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style
             }
           );
   };
@@ -1904,10 +1904,10 @@ module Input = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
-              "onSearch": from_opt onSearch
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
+              "onSearch": fromOption onSearch
             }
           );
   };
@@ -1919,10 +1919,10 @@ module Input = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
-              "size": from_opt size,
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
+              "size": fromOption size,
               "compact": unwrapBool compact
             }
           );
@@ -1937,10 +1937,10 @@ module Timeline = {
       props::
         Js.Undefined.(
           {
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style,
-            "pending": from_opt pending
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style,
+            "pending": fromOption pending
           }
         );
   module Item = {
@@ -1951,11 +1951,11 @@ module Timeline = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
-              "color": from_opt color,
-              "dot": from_opt dot
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
+              "color": fromOption color,
+              "dot": fromOption dot
             }
           );
   };
@@ -1981,18 +1981,18 @@ module Progress = {
       props::
         Js.Undefined.(
           {
-            "format": from_opt format,
-            "gapDegree": from_opt gapDegree,
-            "width": from_opt width,
-            "type": from_opt type_,
-            "className": from_opt className,
-            "style": from_opt style,
-            "status": from_opt status,
-            "strokeWidth": from_opt strokeWidth,
-            "id": from_opt id,
-            "percent": from_opt percent,
+            "format": fromOption format,
+            "gapDegree": fromOption gapDegree,
+            "width": fromOption width,
+            "type": fromOption type_,
+            "className": fromOption className,
+            "style": fromOption style,
+            "status": fromOption status,
+            "strokeWidth": fromOption strokeWidth,
+            "id": fromOption id,
+            "percent": fromOption percent,
             "showInfo": unwrapBool showInfo,
-            "gapPosition": from_opt gapPosition
+            "gapPosition": fromOption gapPosition
           }
         );
 };
@@ -2014,15 +2014,15 @@ module Badge = {
       props::
         Js.Undefined.(
           {
-            "overflowCount": from_opt overflowCount,
-            "className": from_opt className,
-            "style": from_opt style,
-            "status": from_opt status,
-            "id": from_opt id,
+            "overflowCount": fromOption overflowCount,
+            "className": fromOption className,
+            "style": fromOption style,
+            "status": fromOption status,
+            "id": fromOption id,
             "showZero": unwrapBool showZero,
-            "count": from_opt count,
+            "count": fromOption count,
             "dot": unwrapBool dot,
-            "text": from_opt text
+            "text": fromOption text
           }
         );
 };
@@ -2054,25 +2054,25 @@ module Menu = {
       props::
         Js.Undefined.(
           {
-            "onOpenChange": from_opt onOpenChange,
-            "selectedKeys": from_opt selectedKeys,
-            "onSelect": from_opt onSelect,
-            "mode": from_opt mode,
-            "multiple": from_opt multiple,
-            "inlineIndent": from_opt inlineIndent,
-            "className": from_opt className,
-            "style": from_opt style,
-            "theme": from_opt theme,
-            "openAnimation": from_opt openAnimation,
-            "id": from_opt id,
-            "openKeys": from_opt openKeys,
-            "defaultSelectedKeys": from_opt defaultSelectedKeys,
-            "defaultOpenKeys": from_opt defaultOpenKeys,
-            "onDeselect": from_opt onDeselect,
-            "onClick": from_opt onClick,
-            "selectable": from_opt selectable,
-            "inlineCollapsed": from_opt inlineCollapsed,
-            "openTransitionName": from_opt openTransitionName
+            "onOpenChange": fromOption onOpenChange,
+            "selectedKeys": fromOption selectedKeys,
+            "onSelect": fromOption onSelect,
+            "mode": fromOption mode,
+            "multiple": fromOption multiple,
+            "inlineIndent": fromOption inlineIndent,
+            "className": fromOption className,
+            "style": fromOption style,
+            "theme": fromOption theme,
+            "openAnimation": fromOption openAnimation,
+            "id": fromOption id,
+            "openKeys": fromOption openKeys,
+            "defaultSelectedKeys": fromOption defaultSelectedKeys,
+            "defaultOpenKeys": fromOption defaultOpenKeys,
+            "onDeselect": fromOption onDeselect,
+            "onClick": fromOption onClick,
+            "selectable": fromOption selectable,
+            "inlineCollapsed": fromOption inlineCollapsed,
+            "openTransitionName": fromOption openTransitionName
           }
         );
   module Divider = {
@@ -2083,9 +2083,9 @@ module Menu = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
               "disabled": unwrapBool disabled
             }
           );
@@ -2098,11 +2098,11 @@ module Menu = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
               "disabled": unwrapBool disabled,
-              "key": from_opt key
+              "key": fromOption key
             }
           );
   };
@@ -2123,13 +2123,13 @@ module Menu = {
           Js.Undefined.(
             {
               "disabled": unwrapBool disabled,
-              "key": from_opt key,
-              "title": from_opt title,
-              "children": from_opt children,
-              "onTitleClick": from_opt onTitleClick,
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style
+              "key": fromOption key,
+              "title": fromOption title,
+              "children": fromOption children,
+              "onTitleClick": fromOption onTitleClick,
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style
             }
           );
   };
@@ -2141,11 +2141,11 @@ module Menu = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
-              "title": from_opt title,
-              "children": from_opt children
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
+              "title": fromOption title,
+              "children": fromOption children
             }
           );
   };
@@ -2176,21 +2176,21 @@ module Tooltip = {
         Js.Undefined.(
           {
             "arrowPointAtCenter": unwrapBool arrowPointAtCenter,
-            "getPopupContainer": from_opt getPopupContainer,
+            "getPopupContainer": fromOption getPopupContainer,
             "autoAdjustOverflow": unwrapBool autoAdjustOverflow,
-            "mouseEnterDelay": from_opt mouseEnterDelay,
-            "mouseLeaveDelay": from_opt mouseLeaveDelay,
-            "className": from_opt className,
-            "title": from_opt title,
-            "style": from_opt style,
-            "overlay": from_opt overlay,
-            "onVisibleChange": from_opt onVisibleChange,
-            "id": from_opt id,
-            "overlayStyle": from_opt overlayStyle,
-            "overlayClassName": from_opt overlayClassName,
+            "mouseEnterDelay": fromOption mouseEnterDelay,
+            "mouseLeaveDelay": fromOption mouseLeaveDelay,
+            "className": fromOption className,
+            "title": fromOption title,
+            "style": fromOption style,
+            "overlay": fromOption overlay,
+            "onVisibleChange": fromOption onVisibleChange,
+            "id": fromOption id,
+            "overlayStyle": fromOption overlayStyle,
+            "overlayClassName": fromOption overlayClassName,
             "visible": unwrapBool visible,
-            "placement": from_opt placement,
-            "trigger": from_opt trigger
+            "placement": fromOption placement,
+            "trigger": fromOption trigger
           }
         );
 };
@@ -2226,25 +2226,25 @@ module Upload = {
           {
             "withCredentials": unwrapBool withCredentials,
             "multiple": unwrapBool multiple,
-            "defaultFileList": from_opt defaultFileList,
+            "defaultFileList": fromOption defaultFileList,
             "disabled": unwrapBool disabled,
-            "listType": from_opt listType,
-            "name": from_opt name,
-            "className": from_opt className,
-            "headers": from_opt headers,
-            "style": from_opt style,
-            "id": from_opt id,
-            "customRequest": from_opt customRequest,
+            "listType": fromOption listType,
+            "name": fromOption name,
+            "className": fromOption className,
+            "headers": fromOption headers,
+            "style": fromOption style,
+            "id": fromOption id,
+            "customRequest": fromOption customRequest,
             "showUploadList": unwrapBool showUploadList,
-            "action": from_opt action,
+            "action": fromOption action,
             "supportServerRender": unwrapBool supportServerRender,
-            "onChange": from_opt onChange,
-            "beforeUpload": from_opt beforeUpload,
-            "onRemove": from_opt onRemove,
-            "fileList": from_opt fileList,
-            "accept": from_opt accept,
-            "onPreview": from_opt onPreview,
-            "data": from_opt data
+            "onChange": fromOption onChange,
+            "beforeUpload": fromOption beforeUpload,
+            "onRemove": fromOption onRemove,
+            "fileList": fromOption fileList,
+            "accept": fromOption accept,
+            "onPreview": fromOption onPreview,
+            "data": fromOption data
           }
         );
 };
@@ -2271,20 +2271,20 @@ module InputNumber = {
       props::
         Js.Undefined.(
           {
-            "min": from_opt min,
+            "min": fromOption min,
             "disabled": unwrapBool disabled,
-            "formatter": from_opt formatter,
-            "value": from_opt value,
-            "precision": from_opt precision,
-            "className": from_opt className,
-            "size": from_opt size,
-            "style": from_opt style,
-            "parser": from_opt parser,
-            "max": from_opt max,
-            "id": from_opt id,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange,
-            "step": from_opt step
+            "formatter": fromOption formatter,
+            "value": fromOption value,
+            "precision": fromOption precision,
+            "className": fromOption className,
+            "size": fromOption size,
+            "style": fromOption style,
+            "parser": fromOption parser,
+            "max": fromOption max,
+            "id": fromOption id,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange,
+            "step": fromOption step
           }
         );
 };
@@ -2312,13 +2312,13 @@ module Row = {
       props::
         Js.Undefined.(
           {
-            "type": from_opt type_,
-            "gutter": from_opt gutter,
-            "align": from_opt align,
-            "justify": from_opt justify,
-            "id": from_opt id,
-            "className": from_opt className,
-            "style": from_opt style
+            "type": fromOption type_,
+            "gutter": fromOption gutter,
+            "align": fromOption align,
+            "justify": fromOption justify,
+            "id": fromOption id,
+            "className": fromOption className,
+            "style": fromOption style
           }
         );
 };
@@ -2364,37 +2364,37 @@ module Select = {
         Js.Undefined.(
           {
             "multiple": unwrapBool multiple,
-            "getPopupContainer": from_opt getPopupContainer,
+            "getPopupContainer": fromOption getPopupContainer,
             "disabled": unwrapBool disabled,
-            "optionLabelProp": from_opt optionLabelProp,
-            "onSelect": from_opt onSelect,
+            "optionLabelProp": fromOption optionLabelProp,
+            "onSelect": fromOption onSelect,
             "allowClear": unwrapBool allowClear,
-            "placeholder": from_opt placeholder,
+            "placeholder": fromOption placeholder,
             "showSearch": unwrapBool showSearch,
-            "value": from_opt value,
-            "mode": from_opt mode,
-            "dropdownStyle": from_opt dropdownStyle,
-            "onBlur": from_opt onBlur,
-            "firstActiveValue": from_opt firstActiveValue,
-            "className": from_opt className,
-            "size": from_opt size,
-            "dropdownClassName": from_opt dropdownClassName,
-            "onSearch": from_opt onSearch,
-            "style": from_opt style,
-            "notFoundContent": from_opt notFoundContent,
+            "value": fromOption value,
+            "mode": fromOption mode,
+            "dropdownStyle": fromOption dropdownStyle,
+            "onBlur": fromOption onBlur,
+            "firstActiveValue": fromOption firstActiveValue,
+            "className": fromOption className,
+            "size": fromOption size,
+            "dropdownClassName": fromOption dropdownClassName,
+            "onSearch": fromOption onSearch,
+            "style": fromOption style,
+            "notFoundContent": fromOption notFoundContent,
             "labelInValue": unwrapBool labelInValue,
             "dropdownMatchSelectWidth": unwrapBool dropdownMatchSelectWidth,
             "tags": unwrapBool tags,
-            "id": from_opt id,
+            "id": fromOption id,
             "defaultActiveFirstOption": unwrapBool defaultActiveFirstOption,
-            "optionFilterProp": from_opt optionFilterProp,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange,
+            "optionFilterProp": fromOption optionFilterProp,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange,
             "combobox": unwrapBool combobox,
             "filterOption": unwrapBool filterOption,
-            "tokenSeparators": from_opt tokenSeparators,
-            "onDeselect": from_opt onDeselect,
-            "onFocus": from_opt onFocus
+            "tokenSeparators": fromOption tokenSeparators,
+            "onDeselect": fromOption onDeselect,
+            "onFocus": fromOption onFocus
           }
         );
   module Option = {
@@ -2405,13 +2405,13 @@ module Select = {
         props::
           Js.Undefined.(
             {
-              "value": from_opt value,
-              "key": from_opt key,
-              "title": from_opt title,
+              "value": fromOption value,
+              "key": fromOption key,
+              "title": fromOption title,
               "disabled": unwrapBool disabled,
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style
             }
           );
   };
@@ -2423,11 +2423,11 @@ module Select = {
         props::
           Js.Undefined.(
             {
-              "id": from_opt id,
-              "className": from_opt className,
-              "style": from_opt style,
-              "label": from_opt label,
-              "key": from_opt key
+              "id": fromOption id,
+              "className": fromOption className,
+              "style": fromOption style,
+              "label": fromOption label,
+              "key": fromOption key
             }
           );
   };
@@ -2458,22 +2458,22 @@ module Slider = {
       props::
         Js.Undefined.(
           {
-            "onAfterChange": from_opt onAfterChange,
-            "min": from_opt min,
+            "onAfterChange": fromOption onAfterChange,
+            "min": fromOption min,
             "disabled": unwrapBool disabled,
             "vertical": unwrapBool vertical,
-            "value": from_opt value,
+            "value": fromOption value,
             "range": unwrapBool range,
             "included": unwrapBool included,
-            "className": from_opt className,
-            "style": from_opt style,
-            "max": from_opt max,
-            "id": from_opt id,
-            "marks": from_opt marks,
-            "tipFormatter": from_opt tipFormatter,
-            "defaultValue": from_opt defaultValue,
-            "onChange": from_opt onChange,
-            "step": from_opt step,
+            "className": fromOption className,
+            "style": fromOption style,
+            "max": fromOption max,
+            "id": fromOption id,
+            "marks": fromOption marks,
+            "tipFormatter": fromOption tipFormatter,
+            "defaultValue": fromOption defaultValue,
+            "onChange": fromOption onChange,
+            "step": fromOption step,
             "dots": unwrapBool dots
           }
         );
